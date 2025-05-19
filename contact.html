@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js?render=6Led4j8rAAAAAIrypqp80FcU6q1GAtpcsrIrZcDH"></script>
+
+
+
+</head>
+
+<body>
+
+    <div>
+
+        <div class="min-h-screen flex flex-col">
+            <header
+                class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-200 shadow-sm">
+                <div
+                    class="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 py-1 px-4 text-white text-xs text-center">
+                    <div class="flex items-center justify-center"><span
+                            class="py-0.5 px-2 bg-white/20 rounded-sm text-[10px] font-semibold mr-2">2 DAYS
+                            LEFT</span><span class="hidden sm:inline">All plans 50% <span
+                                class="font-semibold">OFF</span></span><span class="mx-2 hidden sm:inline">|</span><a
+                            href="#" class="text-white underline hover:text-white/90 font-medium">Get a limited deal</a>
+                    </div>
+                </div>
+                <div class="container mx-auto px-4">
+                    <div class="flex justify-between items-center h-20">
+                        <a href="#" class="flex items-center z-20">
+                            <div class="flex items-center h-12"><img src="img/logo.png" alt="AI Video Services"
+                                    height="80" class="" style="height: 80px;"></div>
+                        </a>
+                        <nav class="hidden lg:flex space-x-1">
+                            <div class="relative group">
+                                <button
+                                    class="px-2 py-1 text-sm transition-colors text-gray-700 hover:text-primary flex items-center drop-down-btn">Platform<svg
+                                        xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-chevron-down ml-1 transition-transform">
+                                        <path d="m6 9 6 6 6-6"></path>
+                                    </svg>
+
+                                </button>
+
+                                <div
+                                    class="absolute top-full left-0 w-64 mt-1 py-2 bg-white rounded-md shadow-lg border border-gray-100 z-20 drop-down">
+                                    <button
+                                        class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 hover:text-primary"
+                                        data-attr="features">Features</button><button
+                                        class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 hover:text-primary"
+                                        data-attr="pricing">Pricing</button><button
+                                        class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 hover:text-primary"
+                                        data-attr="case-studies">Reviews</button>
+                                </div>
+
+                            </div>
+                            <div class="relative group">
+                                <button
+                                    class="px-2 py-1 text-sm transition-colors text-gray-700 hover:text-primary flex items-center"
+                                    data-attr="pricing">Pricing</button>
+                            </div>
+                            <div class="relative group">
+                                <button
+                                    class="px-2 py-1 text-sm transition-colors text-gray-700 hover:text-primary flex items-center"
+                                    data-attr="case-studies">Reviews</button>
+                            </div>
+                        </nav>
+                        <div class="hidden lg:flex items-center gap-2"><button data-attr="pricing"
+                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 text-xs font-normal py-1 px-2 text-gray-700 hover:text-gray-900 hover:bg-transparent">Log
+                                in</button><button data-attr="pricing"
+                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary hover:bg-primary/90 text-white rounded-full text-xs px-4 py-1 h-auto">Get
+                                Started Now</button></div>
+                        <div class="lg:hidden z-20"><button id="open-menu"
+                                class="btn-toggle inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+                                aria-label="Toggle menu">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-menu">
+                                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-x">
+                                    <path d="M18 6 6 18"></path>
+                                    <path d="m6 6 12 12"></path>
+                                </svg>
+
+                            </button>
+                        </div>
+                    </div>
+                    <div id="mobile-menu" class="fixed inset-0 z-10 bg-white lg:hidden pt-16 hidden">
+                        <div class="container h-full flex flex-col px-6 pb-6 overflow-y-auto pt-6">
+                            <nav class="flex flex-col space-y-1 mt-4">
+                                <div class="w-full">
+                                    <button
+                                        class="flex items-center justify-between w-full p-4 text-left text-gray-800 font-medium hover:bg-gray-50 drop-down-btn">Platform<svg
+                                            xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-chevron-down transition-transform ">
+                                            <path d="m6 9 6 6 6-6"></path>
+                                        </svg>
+                                    </button>
+                                    <div class="ml-4 pl-4 border-l border-gray-200 my-2 drop-down">
+                                        <button class="block w-full p-3 text-left text-gray-600 hover:text-primary"
+                                            data-attr="features">Features</button>
+                                        <button class="block w-full p-3 text-left text-gray-600 hover:text-primary"
+                                            data-attr="pricing">Pricing</button>
+                                        <button class="block w-full p-3 text-left text-gray-600 hover:text-primary"
+                                            data-attr="case-studies">Reviews</button>
+                                    </div>
+                                </div>
+                                <div class="w-full">
+                                    <button
+                                        class="flex items-center justify-between w-full p-4 text-left text-gray-800 font-medium hover:bg-gray-50"
+                                        data-attr="pricing">Pricing</button>
+                                </div>
+                                <div class="w-full"><button
+                                        class="flex items-center justify-between w-full p-4 text-left text-gray-800 font-medium hover:bg-gray-50"
+                                        data-attr="case-studies">Reviews</button>
+                                </div>
+                            </nav>
+                            <div class="mt-auto pt-6 flex flex-col gap-4"><button data-attr="pricing"
+                                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 w-full font-medium py-2.5">Log
+                                    in</button><button data-attr="pricing"
+                                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 px-4 w-full bg-primary hover:bg-primary/90 text-white rounded-full font-medium py-2.5">Get
+                                    Started Now</button></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="flex-grow pt-20">
+                <section class="py-24 bg-white">
+                    <div class="container mx-auto px-6">
+                        <div class="absolute inset-0 -z-10 overflow-hidden">
+                            <div
+                                class="absolute top-1/4 right-1/4 h-[50%] w-[50%] rounded-full bg-blue-50 blur-3xl opacity-50">
+                            </div>
+                            <div
+                                class="absolute bottom-1/4 left-1/4 h-[40%] w-[40%] rounded-full bg-purple-50 blur-3xl opacity-50">
+                            </div>
+                        </div>
+                        <div class="mx-auto max-w-3xl text-center mb-16">
+                            <div
+                                class="inline-block mb-6 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                                Contact Us</div>
+                            <h1 class="mb-4 text-4xl font-bold tracking-tight md:text-5xl"
+                                data-aos-once="true" data-aos="fade-up">Get In Touch With Our <span class="text-primary">AI
+                                    Video Experts</span></h1>
+                            <p class="text-lg text-gray-500 md:text-xl mb-8" data-aos-once="true" data-aos="fade-up">Fill
+                                out the form below and our team will get back to you to discuss your AI video and
+                                content needs</p>
+                        </div>
+                        <div class="contact-section mx-auto max-w-2xl"  data-aos-once="true" data-aos="fade-up">
+                            <div class="rounded-2xl bg-white border border-gray-200 shadow-sm p-8">
+                                <h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
+                                <form class="space-y-6" id="contact-form" action="https://formspree.io/f/xkgregay" method="POST">
+                                    <div class="space-y-2"><label
+                                            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                            for=":r0:-form-item">Full Name</label><input
+                                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                                            placeholder="Full Name" name="fullName" id=":r0:-form-item"
+                                            aria-describedby=":r0:-form-item-description" aria-invalid="false" value="">
+                                    </div>
+                                    <div class="space-y-2"><label
+                                            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                            for=":r1:-form-item">Email</label><input type="email"
+                                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                                            placeholder="Email" name="email" id=":r1:-form-item"
+                                            aria-describedby=":r1:-form-item-description" aria-invalid="false" value="">
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        <div class="md:col-span-1"><input
+                                                class="flex w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm h-10"
+                                                placeholder="+1" id="phonePrefix" name="phonePrefix" value="+1"></div>
+                                        <div class="md:col-span-2">
+                                            <div class="space-y-2"><input
+                                                    class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                                                    placeholder="Phone Number" name="phoneNumber" id=":r2:-form-item"
+                                                    aria-describedby=":r2:-form-item-description" aria-invalid="false"
+                                                    value=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="space-y-2"><label
+                                            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                            for=":r3:-form-item">Company Name</label><input
+                                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                                            placeholder="Company Name" name="company" id=":r3:-form-item"
+                                            aria-describedby=":r3:-form-item-description" aria-invalid="false" value="">
+                                    </div>
+                                    <div class="space-y-2"><label
+                                            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                            for=":r4:-form-item">Job Title</label><input
+                                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                                            placeholder="Job Title" name="jobTitle" id=":r4:-form-item"
+                                            aria-describedby=":r4:-form-item-description" aria-invalid="false" value="">
+                                    </div>
+                                    <div class="space-y-2"><label
+                                            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                            for=":r5:-form-item">Country</label>
+                                        <select aria-hidden="true" tabindex="-1" id=":r5:-form-item"
+                                            name="country" class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1" >
+                                            <option value="">Country</option>
+                                            <option value="United States">United States</option>
+                                            <option value="United Kingdom">United Kingdom</option>
+                                            <option value="Canada">Canada</option>
+                                            <option value="Australia">Australia</option>
+                                            <option value="Germany">Germany</option>
+                                            <option value="France">France</option>
+                                            <option value="Spain">Spain</option>
+                                            <option value="Italy">Italy</option>
+                                            <option value="Japan">Japan</option>
+                                            <option value="China">China</option>
+                                            <option value="India">India</option>
+                                            <option value="Brazil">Brazil</option>
+                                            <option value="Mexico">Mexico</option>
+                                            <option value="South Africa">South Africa</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-2"><label
+                                            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                            for=":r7:-form-item">Enquiry</label><textarea
+                                            class="flex w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm min-h-32 resize-none"
+                                            placeholder="Tell us about your project and requirements" name="enquiry"
+                                            id=":r7:-form-item" aria-describedby=":r7:-form-item-description"
+                                            aria-invalid="false"></textarea></div>
+                                    <div class="flex flex-row items-start space-x-3 space-y-0">
+                                            <input type="checkbox" class="h-4 w-4 mr-2" aria-hidden="true" id=":r8:-form-item"
+                                            tabindex="-1" value="on" name="newsletter"
+                                            >
+                                        <div class="space-y-1 leading-none"><label
+                                                class="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm font-normal"
+                                                for=":r8:-form-item">Yes - I would like to receive news and
+                                                communications from AI Video Services.</label></div>
+                                    </div>
+                                    <div class="text-sm text-gray-500 mb-6">We will use your personal data for marketing
+                                        and sales purposes. For more information on how we use your personal data please
+                                        see our <a href="privacy-policy.html" class="text-primary hover:underline">Privacy Notice</a>.
+                                    </div>
+                                    <input type="hidden" name="_captcha" value="false">
+                                    <button
+                                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-11 rounded-md px-8 w-full bg-primary text-white hover:bg-primary/90"
+                                        type="submit">SUBMIT</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="bg-white border-t">
+                <div class="container mx-auto px-6 md:px-12 py-16">
+                    <div class="flex flex-col lg:flex-row gap-16">
+                        <div class="lg:w-1/3">
+                            <div class="mb-8">
+                                <div class="flex items-center h-16 mb-6"><img src="img/logo.png" alt="AI Video Services"
+                                        height="80" class="" style="height: 80px;"></div>
+                                <p class="text-gray-500 mb-6">AI Video Services is a cutting-edge platform that empowers consumers, solopreneurs and businesses to create professional-quality videos through AI technology. Our solutions helps enhance marketing, reduce production costs, and deliver compelling content at scale.
+</p>
+                            </div>
+                            
+                        </div>
+                        <div class="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-8">
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-900 mb-6">Product</h3>
+                                <ul class="space-y-4">
+                                    <li><button class="text-gray-500 hover:text-primary transition duration-300"
+                                            data-attr="features">Features</button>
+                                    </li>
+                                    <li><button class="text-gray-500 hover:text-primary transition duration-300"
+                                            data-attr="how-it-works">How
+                                            It Works</button></li>
+                                    <li><button class="text-gray-500 hover:text-primary transition duration-300"
+                                            data-attr="pricing">Pricing</button>
+                                    </li>
+                                    <li><button class="text-gray-500 hover:text-primary transition duration-300"
+                                            data-attr="case-studies">Success
+                                            Stories</button></li>
+                                    <li><button class="text-gray-500 hover:text-primary transition duration-300"
+                                            data-attr="faq">FAQ</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-900 mb-6">Company</h3>
+                                <ul class="space-y-4">
+                                    <li><a href="#" class="text-gray-500 hover:text-primary transition duration-300"
+                                            data-attr="hero">About
+                                            Us</a></li>
+                                    <li><a href="contact.html" class="text-gray-500 hover:text-primary transition duration-300"
+                                            data-attr="hero">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-900 mb-6">Legal</h3>
+                                <ul class="space-y-4">
+                                    <li><a href="privacy-policy.html"
+                                            class="text-gray-500 hover:text-primary transition duration-300">Privacy
+                                            Policy</a></li>
+                                    <li><a href="terms-of-service.html"
+                                            class="text-gray-500 hover:text-primary transition duration-300">Terms
+                                            of Service</a></li>
+                                    <li><a href="cookies-policy.html"
+                                            class="text-gray-500 hover:text-primary transition duration-300">Cookie
+                                            Policy</a></li>
+                                </ul>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="border-t border-gray-200 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 AI Video Services Limited. All rights reserved. 16431547. 32 The Causeway, Crosses, Southport, Merseyside, PR9 8JB
+                        </p>
+                        <button id="bottom-scroll-top"
+                            class="flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 text-gray-500 hover:bg-primary hover:text-white transition duration-300"
+                            aria-label="Scroll to top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up h-5 w-5">
+                                <path d="m5 12 7-7 7 7"></path>
+                                <path d="M12 19V5"></path>
+                            </svg></button>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <button id="fixed-scroll-top"
+        class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-[#FF0080] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-[#FF4EAC] transition-colors hidden"
+        aria-label="Scroll to top"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+        </svg></button>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"
+        integrity="sha512-KFHXdr2oObHKI9w4Hv1XPKc898mE4kgYx58oqsc/JqqdLMDI4YjOLzom+EMlW8HFUd0QfjfAvxSL6sEq/a42fQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/additional-methods.min.js"
+        integrity="sha512-owaCKNpctt4R4oShUTTraMPFKQWG9UdWTtG6GRzBjFV4VypcFi6+M3yc4Jk85s3ioQmkYWJbUl1b2b2r41RTjA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6Led4j8rAAAAAIrypqp80FcU6q1GAtpcsrIrZcDH', {action: 'submit'}).then(function(token) {
+                    // Add the token to the form
+                    const tokenInput = document.createElement('input');
+                    tokenInput.type = 'hidden';
+                    tokenInput.name = 'g-recaptcha-response';
+                    tokenInput.value = token;
+                    document.getElementById('contact-form').appendChild(tokenInput);
+                    
+                    // Submit the form
+                    document.getElementById('contact-form').submit();
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
