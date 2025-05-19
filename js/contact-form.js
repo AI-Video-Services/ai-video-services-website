@@ -55,13 +55,22 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 setLoading(true);
                 
+                const token = await window.generateRecaptchaToken();
+            
                 // Get form data
                 const formData = new FormData(form);
+                
+                // Convert FormData to object and add recaptcha token
+                const payload = {
+                    ...formDataToObject(formData),
+                    recaptchaToken: token
+                };
+                
                 
                 // Send form data to Formspree
                 const response = await fetch(form.action, {
                     method: 'POST',
-                    body: formData,
+                    body: JSON.stringify(payload),
                     headers: {
                         'Accept': 'application/json'
                     }
