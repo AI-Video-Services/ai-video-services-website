@@ -192,13 +192,13 @@
                                         <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
                                             <h3 class="font-bold mb-3">Order Summary</h3>
                                             <div class="flex justify-between mb-2"><span>Plan</span><span
-                                                    class="font-medium">Custom Plan</span></div>
+                                                    class="font-medium" id="mobile-plan-name">Custom Plan</span></div>
                                             <div class="flex justify-between mb-4"><span>Price</span><span
-                                                    class="font-medium">Custom pricing</span></div>
+                                                    class="font-medium" id="mobile-plan-price">Custom pricing</span></div>
                                             <div class="border-t border-gray-200 pt-3 mb-3">
                                                 <div class="flex justify-between"><span
                                                         class="font-bold">Total</span><span
-                                                        class="font-bold text-primary">Custom pricing</span></div>
+                                                        class="font-bold text-primary" id="mobile-total-price">Custom pricing</span></div>
                                             </div>
                                         </div>
                                     </div>
@@ -221,13 +221,13 @@
                                 <h2 class="text-xl font-bold mb-6">Order Summary</h2>
                                 <div class="mb-6">
                                     <div class="flex justify-between mb-2"><span class="text-gray-600">Plan</span><span
-                                            class="font-medium">Custom Plan</span></div>
+                                            class="font-medium" id="desktop-plan-name">Custom Plan</span></div>
                                     <div class="flex justify-between"><span class="text-gray-600">Price</span><span
-                                            class="font-medium">Custom pricing</span></div>
+                                            class="font-medium" id="desktop-plan-price">Custom pricing</span></div>
                                 </div>
                                 <div class="border-t border-gray-200 pt-4 mb-6">
                                     <div class="flex justify-between text-lg"><span class="font-bold">Total</span><span
-                                            class="font-bold text-primary">Custom pricing</span></div>
+                                            class="font-bold text-primary" id="desktop-total-price">Custom pricing</span></div>
                                 </div>
                                 <div class="bg-green-50 p-4 rounded-lg mb-6">
                                     <div class="flex"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -378,6 +378,23 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const planName = urlParams.get('planName') || 'Custom Plan';
+            const planPrice = urlParams.get('planPrice') || 'Custom pricing';
+
+            // Update Desktop Order Summary
+            document.getElementById('desktop-plan-name').textContent = planName;
+            document.getElementById('desktop-plan-price').textContent = planPrice;
+            document.getElementById('desktop-total-price').textContent = planPrice;
+
+            // Update Mobile Order Summary
+            document.getElementById('mobile-plan-name').textContent = planName;
+            document.getElementById('mobile-plan-price').textContent = planPrice;
+            document.getElementById('mobile-total-price').textContent = planPrice;
+        });
+    </script>
 
 </body>
 
