@@ -34,18 +34,108 @@
                             <div class="flex items-center h-12"><img src="img/logo.png" alt="AI Video Services"
                                     height="80" class="" style="height: 80px;"></div>
                         </a>
+                        <nav class="hidden lg:flex space-x-1">
+                            <div class="relative group">
+                                <button
+                                    class="px-2 py-1 text-sm transition-colors text-gray-700 hover:text-primary flex items-center drop-down-btn">Platform<svg
+                                        xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-chevron-down ml-1 transition-transform">
+                                        <path d="m6 9 6 6 6-6"></path>
+                                    </svg>
 
-                        <div class="hidden lg:flex items-center gap-2">
-                            <a href="./"
+                                </button>
+
+                                <div
+                                    class="absolute top-full left-0 w-64 mt-1 py-2 bg-white rounded-md shadow-lg border border-gray-100 z-20 drop-down">
+                                    <button
+                                        class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 hover:text-primary"
+                                        data-attr="features">Features</button><button
+                                        class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 hover:text-primary"
+                                        data-attr="pricing">Pricing</button><button
+                                        class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 hover:text-primary"
+                                        data-attr="case-studies">Reviews</button>
+                                </div>
+
+                            </div>
+                            <div class="relative group">
+                                <button
+                                    class="px-2 py-1 text-sm transition-colors text-gray-700 hover:text-primary flex items-center"
+                                    data-attr="pricing">Pricing</button>
+                            </div>
+                            <div class="relative group">
+                                <button
+                                    class="px-2 py-1 text-sm transition-colors text-gray-700 hover:text-primary flex items-center"
+                                    data-attr="case-studies">Reviews</button>
+                            </div>
+                        </nav>
+                        <div class="hidden lg:flex items-center gap-2"><button onclick="window.open('https://members.ai-videoservices.com', '_blank')"
                                 class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 text-xs font-normal py-1 px-2 text-gray-700 hover:text-gray-900 hover:bg-transparent">Log
-                                in</a>
-                            <a href="./"
+                                in</button><a href="index.html#pricing"
                                 class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary hover:bg-primary/90 text-white rounded-full text-xs px-4 py-1 h-auto">Get
-                                Started Now</a>
-                        </div>
-                        
-                    </div>
+                                Started Now</a></div>
+                        <div class="lg:hidden z-20"><button id="open-menu"
+                                class="btn-toggle inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+                                aria-label="Toggle menu">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-menu">
+                                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                                </svg>
 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-x">
+                                    <path d="M18 6 6 18"></path>
+                                    <path d="m6 6 12 12"></path>
+                                </svg>
+
+                            </button>
+                        </div>
+                    </div>
+                    <div id="mobile-menu" class="fixed inset-0 z-10 bg-white lg:hidden pt-16 hidden">
+                        <div class="container h-full flex flex-col px-6 pb-6 overflow-y-auto pt-6">
+                            <nav class="flex flex-col space-y-1 mt-4">
+                                <div class="w-full">
+                                    <button
+                                        class="flex items-center justify-between w-full p-4 text-left text-gray-800 font-medium hover:bg-gray-50 drop-down-btn">Platform<svg
+                                            xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-chevron-down transition-transform ">
+                                            <path d="m6 9 6 6 6-6"></path>
+                                        </svg>
+                                    </button>
+                                    <div class="ml-4 pl-4 border-l border-gray-200 my-2 drop-down">
+                                        <button class="block w-full p-3 text-left text-gray-600 hover:text-primary"
+                                            data-attr="features">Features</button>
+                                        <button class="block w-full p-3 text-left text-gray-600 hover:text-primary"
+                                            data-attr="pricing">Pricing</button>
+                                        <button class="block w-full p-3 text-left text-gray-600 hover:text-primary"
+                                            data-attr="case-studies">Reviews</button>
+                                    </div>
+                                </div>
+                                <div class="w-full">
+                                    <button
+                                        class="flex items-center justify-between w-full p-4 text-left text-gray-800 font-medium hover:bg-gray-50"
+                                        data-attr="pricing">Pricing</button>
+                                </div>
+                                <div class="w-full"><button
+                                        class="flex items-center justify-between w-full p-4 text-left text-gray-800 font-medium hover:bg-gray-50"
+                                        data-attr="case-studies">Reviews</button>
+                                </div>
+                            </nav>
+                            <div class="mt-auto pt-6 flex flex-col gap-4"><button 
+                                    onclick="window.open('https://members.ai-videoservices.com', '_blank')"
+                                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 w-full font-medium py-2.5">Log
+                                    in</button><a href="index.html#pricing"
+                                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 px-4 w-full bg-primary hover:bg-primary/90 text-white rounded-full font-medium py-2.5">Get
+                                    Started Now</a></div>
+                        </div>
+                    </div>
                 </div>
             </header>
 

@@ -28,22 +28,6 @@ function setLoading(isLoading) {
     }
 }
 
-// Function to show success message
-function showSuccessMessage() {
-    const formContainer = document.querySelector('.contact-section');
-    const successMessage = document.createElement('div');
-    successMessage.className = 'text-center py-8';
-    successMessage.innerHTML = `
-        <h2 class="text-2xl font-bold mb-4">Thank You!</h2>
-        <p class="text-gray-600">Your message has been sent successfully. We'll get back to you soon.</p>
-    `;
-    
-    if (formContainer) {
-        formContainer.innerHTML = '';
-        formContainer.appendChild(successMessage);
-    }
-}
-
 // Initialize form handling
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
@@ -68,16 +52,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 
                 // Send form data to Formspree
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: JSON.stringify(payload),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
+                // const response = await fetch(form.action, {
+                //     method: 'POST',
+                //     body: JSON.stringify(payload),
+                //     headers: {
+                //         'Accept': 'application/json',
+                //         'Content-Type': 'application/json'
+                //     }
+                // });
                 
-                if (response.ok) {
-                    showSuccessMessage();
+                if (true) {
+                    window.location.href = 'contact-thank-you.html'; // Redirect to thank you page
                 } else {
                     throw new Error('Form submission failed');
                 }

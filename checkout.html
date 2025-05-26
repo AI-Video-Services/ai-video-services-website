@@ -68,11 +68,11 @@
                                     data-attr="case-studies">Reviews</button>
                             </div>
                         </nav>
-                        <div class="hidden lg:flex items-center gap-2"><button data-attr="pricing"
-                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 text-xs font-normal py-1 px-2 text-gray-700 hover:text-gray-900 hover:bg-transparent">Log
-                                in</button><button data-attr="pricing"
-                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary hover:bg-primary/90 text-white rounded-full text-xs px-4 py-1 h-auto">Get
-                                Started Now</button></div>
+                        <div class="hidden lg:flex items-center gap-2"><button onclick="window.open('https://members.ai-videoservices.com', '_blank')"
+                                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 text-xs font-normal py-1 px-2 text-gray-700 hover:text-gray-900 hover:bg-transparent">Log
+                                    in</button><a href="index.html#pricing"
+                                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary hover:bg-primary/90 text-white rounded-full text-xs px-4 py-1 h-auto">Get
+                                    Started Now</a></div>
                         <div class="lg:hidden z-20"><button id="open-menu"
                                 class="btn-toggle inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10"
                                 aria-label="Toggle menu">
@@ -126,11 +126,12 @@
                                         data-attr="case-studies">Reviews</button>
                                 </div>
                             </nav>
-                            <div class="mt-auto pt-6 flex flex-col gap-4"><button data-attr="pricing"
+                            <div class="mt-auto pt-6 flex flex-col gap-4"><button 
+                                    onclick="window.open('https://members.ai-videoservices.com', '_blank')"
                                     class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 w-full font-medium py-2.5">Log
-                                    in</button><button data-attr="pricing"
+                                    in</button><a href="index.html#pricing"
                                     class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 px-4 w-full bg-primary hover:bg-primary/90 text-white rounded-full font-medium py-2.5">Get
-                                    Started Now</button></div>
+                                    Started Now</a></div>
                         </div>
                     </div>
                 </div>
@@ -244,7 +245,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="space-y-3">
+                                <div class="space-y-3" id="desktop-features-list">
                                     <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -380,6 +381,60 @@
     <script src="js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const featuresData = {
+              "Small": [
+                "AI Images",
+                "AI Avatar Videos",
+                "AI Promo Videos",
+                "Brand Blueprint",
+                "Email Support",
+                "Content Strategy Consultation",
+                "Training"
+              ],
+              "Professional": [
+                "AI Images (Premium Quality)",
+                "AI Avatar Videos (Enhanced)",
+                "AI Promo Videos (Enhanced)",
+                "Brand & Marketing Blueprint",
+                "Priority Email Support",
+                "Content Strategy Workshops",
+                "Advanced Training",
+                "Content Performance Analytics"
+              ],
+              "Power": [
+                "AI Images",
+                "AI Avatar Videos (Bespoke)",
+                "AI Promo Videos (Bespoke)",
+                "Brand & Product Blueprint",
+                "Priority Support",
+                "Dedicated Content Manager",
+                "Multi-platform Content Strategy",
+                "White Label Training"
+              ],
+              "Power Plus": [
+                "AI Images (Unlimited)",
+                "AI Avatar Videos (Premium)",
+                "AI Promo Videos (Premium)",
+                "Advanced Brand Strategy",
+                "24/7 Priority Support",
+                "Dedicated Strategy Team",
+                "Multi-platform Content Strategy",
+                "Custom Training Programs",
+                "Content ROI Reporting"
+              ],
+              "Enterprise": [
+                "Custom AI Promo Video Storyboarding",
+                "Custom AI Avatar Development",
+                "Premium Video Production",
+                "24/7 VIP Support",
+                "Executive Account Manager",
+                "Comprehensive Content Strategy",
+                "White Label Training",
+                "White-label Solutions Available"
+              ],
+              "Custom Plan": []
+            };
+
             const urlParams = new URLSearchParams(window.location.search);
             const planName = urlParams.get('planName') || 'Custom Plan';
             const planPrice = urlParams.get('planPrice') || 'Custom pricing';
@@ -393,6 +448,32 @@
             document.getElementById('mobile-plan-name').textContent = planName;
             document.getElementById('mobile-plan-price').textContent = planPrice;
             document.getElementById('mobile-total-price').textContent = planPrice;
+
+            // Display features
+            const features = featuresData[planName] || featuresData['Custom Plan'] || [];
+            const featuresListDesktop = document.getElementById('desktop-features-list');
+            
+            featuresListDesktop.innerHTML = ''; // Clear existing/placeholder features
+
+            if (features.length > 0) {
+                features.forEach(feature => {
+                    const listItem = document.createElement('div');
+                    listItem.classList.add('flex', 'items-center');
+                    listItem.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big text-primary w-4 h-4 mr-2">
+                            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                            <path d="m9 11 3 3L22 4"></path>
+                        </svg>
+                        <span class="text-sm text-gray-600">${feature}</span>
+                    `;
+                    featuresListDesktop.appendChild(listItem);
+                });
+            } else {
+                const noFeaturesItem = document.createElement('div');
+                noFeaturesItem.classList.add('text-sm', 'text-gray-500');
+                noFeaturesItem.textContent = 'No specific features listed for this plan. Contact us for details.';
+                featuresListDesktop.appendChild(noFeaturesItem);
+            }
         });
     </script>
 
