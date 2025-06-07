@@ -1,7 +1,7 @@
 
 if (typeof AOS !== 'undefined') {
     AOS.init();
-  }
+}
 
 $(document).ready(function () {
 
@@ -73,11 +73,11 @@ $(document).ready(function () {
         }, 1000);
     }
 
-    if(document.getElementById('hours') && document.getElementById('mins')) {
+    if (document.getElementById('hours') && document.getElementById('mins')) {
         start24hCountdown();
     }
 
-    
+
 
 
     var toggleBtnMenu = $("#open-menu");
@@ -125,15 +125,15 @@ $(document).ready(function () {
         }
     }
 
-    if(target) {
+    if (target) {
         window.addEventListener('scroll', onScroll);
         onScroll();
     }
 
-    
 
 
-   
+
+
 
     $(document).on('click', 'button[data-attr]', function (e) {
 
@@ -151,87 +151,253 @@ $(document).ready(function () {
         annualPlanBtn = $("#annual-btn");
 
     monthPlanBtn.on("click", function () {
-        annualPlanBtn.attr("data-state","inactive");
+        annualPlanBtn.attr("data-state", "inactive");
         annualBill.addClass("hidden");
-        $(this).attr("data-state","active");
+        $(this).attr("data-state", "active");
         monthBill.removeClass("hidden");
     })
 
     annualPlanBtn.on("click", function () {
-        monthPlanBtn.attr("data-state","inactive");
+        monthPlanBtn.attr("data-state", "inactive");
         monthBill.addClass("hidden");
-        $(this).attr("data-state","active");
+        $(this).attr("data-state", "active");
         annualBill.removeClass("hidden");
     })
 
 
-    if(document.querySelector("#contact-form")) {
+    if (document.querySelector("#contact-form")) {
         $('#contact-form').validate({
 
 
-        errorElement: "p",
-        errorClass: "text-sm font-medium text-destructive",
-        rules: {
-            fullName: { required: true, minlength: 3, maxlength: 35 },
-            enquiry: { required: true, minlength: 3, maxlength: 300 },
-            email: { required: true, email: true, minlength: 8, maxlength: 40 },
-            phoneNumber: { required: true, minlength: 10, maxlength: 12 },
-            company: { required: true, minlength: 2, maxlength: 40 },
-            jobTitle: { required: true, minlength: 2, maxlength: 40 },
-            country: { required: true },
+            errorElement: "p",
+            errorClass: "text-sm font-medium text-destructive",
+            rules: {
+                fullName: { required: true, minlength: 3, maxlength: 35 },
+                enquiry: { required: true, minlength: 3, maxlength: 300 },
+                email: { required: true, email: true, minlength: 8, maxlength: 40 },
+                phoneNumber: { required: true, minlength: 10, maxlength: 12 },
+                company: { required: true, minlength: 2, maxlength: 40 },
+                jobTitle: { required: true, minlength: 2, maxlength: 40 },
+                country: { required: true },
 
 
 
 
-        },
-        messages: {
-            fullName: { required: "Name must be at least 2 characters." },
-            enquiry: { required: "Message must be at least 10 characters." },
-            email: { required: "Please enter a valid email address." },
-            phoneNumber: { required: "Please enter a valid phone number." },
-            company: { required: "Please enter your company name." },
-            jobTitle: { required: "Please enter your job title." },
-            country: { required: "Please select your country." },
+            },
+            messages: {
+                fullName: { required: "Name must be at least 2 characters." },
+                enquiry: { required: "Message must be at least 10 characters." },
+                email: { required: "Please enter a valid email address." },
+                phoneNumber: { required: "Please enter a valid phone number." },
+                company: { required: "Please enter your company name." },
+                jobTitle: { required: "Please enter your job title." },
+                country: { required: "Please select your country." },
 
 
 
-        },
+            },
 
-        errorPlacement: function (error, element) {
-            if (element.attr('name') == "phoneNumber") {
-                element.parent().after(error);
-            } else {
-                element.after(error);
+            errorPlacement: function (error, element) {
+                if (element.attr('name') == "phoneNumber") {
+                    element.parent().after(error);
+                } else {
+                    element.after(error);
+                }
+
+            },
+            submitHandler: function (form, event) {
+                event.preventDefault();
+
+                $("#contact-form button[type='submit']").text("Sending...").attr("disabled", "");
+
+
+
+                setTimeout(() => {
+                    window.location.href = "purchase-thank-you.html"
+                }, 5000)
+
+
+
+
+
             }
-
-        },
-        submitHandler: function (form, event) {
-            event.preventDefault();
-
-            $("#contact-form button[type='submit']").text("Sending...").attr("disabled","");
-            
-
-
-            setTimeout(() => {
-                window.location.href = "purchase-thank-you.html"
-            }, 5000)
-
-
-
-
-
-        }
-    });
+        });
     }
 
 
-     
+    if (document.querySelector("#checkout-form")) {
+        $('#checkout-form').validate({
+
+
+            errorElement: "p",
+            errorClass: "text-sm font-medium text-destructive",
+            rules: {
+                firstName: { required: true, minlength: 2, maxlength: 35 },
+                lastName: { required: true, minlength: 2, maxlength: 35 },
+                email: { required: true, email: true, minlength: 8, maxlength: 40 },
+
+
+
+
+            },
+            messages: {
+                firstName: { required: "First Name must be at least 2 characters" },
+                lastName: { required: "Last Name must be at least 2 characters" },
+                email: { required: "Please enter a valid email address" },
+
+
+            },
+
+            errorPlacement: function (error, element) {
+                element.after(error);
+
+            },
+            submitHandler: function (form, event) {
+                event.preventDefault();
+
+                $("#checkout-form button[type='submit']").text("Processing...").attr("disabled", "");
+
+
+                setTimeout(() => {
+                    window.location.href = `purchase-thank-you.html`;
+                }, 1500)
+
+
+
+
+
+
+            }
+        });
+    }
+
+
+
+
 
 
     $("#video-overlay").on("click", function () {
-       
+
         $(this).parent().children().toggleClass("hidden");
         $(this).parent().children("video")[0].play();
     })
 
+
+
+    if (document.querySelector("#affiliate-form")) {
+
+        const spinnerHTML = `
+  <span class="flex items-center">
+    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+    Submitting Application...
+  </span>
+`;
+
+
+        $('#affiliate-form').validate({
+
+
+            errorElement: "p",
+            errorClass: "text-red-500 text-sm",
+            rules: {
+                name: { required: true, minlength: 2, maxlength: 35 },
+                email: { required: true, email: true, minlength: 8, maxlength: 40 },
+                trafficType: { required: true }
+
+
+
+
+            },
+            messages: {
+                firstName: { required: "Name must be at least 2 characters" },
+                email: { required: "Please enter a valid email address" },
+                trafficType: { required: "Please select your traffic type." }
+
+
+            },
+
+            errorPlacement: function (error, element) {
+                element.after(error);
+
+            },
+            submitHandler: function (form, event) {
+                event.preventDefault();
+
+                $("#affiliate-form button[type='submit']").html(spinnerHTML).attr("disabled", "");
+
+
+                $("#affiliate-form").closest("main").addClass("hidden").next().removeClass("hidden")
+
+
+
+
+
+
+            }
+        });
+
+
+    }
+
+
+
+    if (document.querySelector("#newsletter-form")) {
+        $('#newsletter-form input').on('input', function () {
+            if ($(this).val().trim() !== '') {
+                $("#newsletter-form button[type='submit']").prop('disabled', false);
+            } else {
+                $("#newsletter-form button[type='submit']").prop('disabled', true);
+            }
+        });
+
+        const spinnerHTMLNewsLetter = `
+  <span class="flex items-center">
+    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+    Submitting Application...
+  </span>
+`;
+
+
+
+
+
+        $('#newsletter-form').on('submit', function (e) {
+            e.preventDefault();
+
+            const email = $('#newsletter-form input').val().trim();
+
+            if (isValidEmail(email)) {
+                $("#newsletter-form button[type='submit']").html(spinnerHTMLNewsLetter).attr("disabled", "");
+
+
+                $("#newsletter-form").closest(".max-w-2xl").addClass("hidden").next().removeClass("hidden")
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+
+
+        function isValidEmail(email) {
+            if (email === '') {
+                return false;  // Empty email is not valid
+            }
+            // Basic email validation using a regular expression (can be expanded)
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            return emailPattern.test(email);
+        }
+
+
+        $("#return-newsletter").on("click", function () {
+            $("#newsletter-form button[type='submit']").html("Subscribe")
+            $("#newsletter-form input").val("");
+            $("#newsletter-form").closest(".max-w-2xl").removeClass("hidden").next().addClass("hidden")
+        })
+
+    }
 })
