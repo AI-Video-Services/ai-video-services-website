@@ -17,52 +17,84 @@ function formDataToObject(formData) {
 
 // Function to set loading state
 function setLoading(isLoading) {
-    const submitButton = document.querySelector('button[type="submit"]');
-    
+    const button = document.getElementById('submit-button') || document.querySelector('button[type="submit"]');
+    if (!button) return;
+    const buttonText = button.querySelector('.button-text') || button;
+    const spinner = button.querySelector('svg');
+
     if (isLoading) {
-        submitButton.disabled = true;
-        submitButton.textContent = 'SUBMITTING...';
+        button.disabled = true;
+        buttonText.textContent = 'SUBMITTING...';
+        if (spinner) spinner.classList.remove('hidden');
     } else {
-        submitButton.disabled = false;
-        submitButton.textContent = 'SUBMIT';
+        button.disabled = false;
+        buttonText.textContent = 'SUBMIT';
+        if (spinner) spinner.classList.add('hidden');
+    }
+}
+
+// Function to show success message
+function showSuccessMessage() {
+    const formContainer = document.querySelector('.bg-white.rounded-xl.shadow-md.overflow-hidden');
+    const successMessage = document.getElementById('thanks-message');
+
+    if (formContainer && successMessage) {
+        // Hide form with fade out
+        formContainer.style.transition = 'opacity 0.3s ease-out';
+        formContainer.style.opacity = '0';
+
+        setTimeout(() => {
+            formContainer.classList.add('hidden');
+            // Show success message with fade in
+            successMessage.classList.remove('hidden');
+            successMessage.style.opacity = '0';
+            successMessage.style.transition = 'opacity 0.3s ease-in';
+
+            // Force reflow
+            successMessage.offsetHeight;
+
+            successMessage.style.opacity = '1';
+        }, 300);
     }
 }
 
 // Initialize form handling
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
-    
+
     if (form) {
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             try {
                 setLoading(true);
-                
+
+                // Generate reCAPTCHA token
                 const token = await window.generateRecaptchaToken();
-            
+
                 // Get form data
                 const formData = new FormData(form);
-                
+
                 // Convert FormData to object and add recaptcha token
                 const payload = {
                     ...formDataToObject(formData),
                     recaptchaToken: token
                 };
-                
-                
-                // Send form data to Formspree
-                // const response = await fetch(form.action, {
-                //     method: 'POST',
-                //     body: JSON.stringify(payload),
-                //     headers: {
-                //         'Accept': 'application/json',
-                //         'Content-Type': 'application/json'
-                //     }
-                // });
-                
-                if (true) {
-                    window.location.href = 'contact-thank-you.html'; // Redirect to thank you page
+
+                // Send form data to your server
+                const response = await fetch('http://localhost:3000/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    // Option 1: Show animated message (if present)
+                    showSuccessMessage();
+                    // Option 2: Or redirect
+                    // window.location.href = 'thanks-contact.html';
                 } else {
                     throw new Error('Form submission failed');
                 }
@@ -73,4 +105,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-}); 
+});
