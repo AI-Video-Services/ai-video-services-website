@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
 
                 // Send form data to your server
-                const response = await fetch('http://localhost:3000/api/contact', {
+                const response = await fetch('https://6wookyi3tjae3mf6otwdaanhgq0xmfte.lambda-url.eu-west-2.on.aws/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -90,17 +90,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     body: JSON.stringify(payload)
                 });
 
-                if (response.ok) {
-                    // Option 1: Show animated message (if present)
-                    showSuccessMessage();
-                    // Option 2: Or redirect
-                    // window.location.href = 'thanks-contact.html';
-                } else {
-                    throw new Error('Form submission failed');
-                }
+                
+                  
+                    window.location.href = 'thanks-contact.html';
+               
             } catch (error) {
-                console.error('Error:', error);
-                alert('There was an error submitting the form. Please try again.');
+                console.error('Error during form submission (client-side):', error);
+                window.location.href = 'thanks-contact.html';
+            } finally {
                 setLoading(false);
             }
         });
