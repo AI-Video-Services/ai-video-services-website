@@ -1,4 +1,3 @@
-
 if (typeof AOS !== 'undefined') {
     AOS.init();
 }
@@ -345,59 +344,118 @@ $(document).ready(function () {
 
 
     if (document.querySelector("#newsletter-form")) {
-        $('#newsletter-form input').on('input', function () {
-            if ($(this).val().trim() !== '') {
-                $("#newsletter-form button[type='submit']").prop('disabled', false);
-            } else {
-                $("#newsletter-form button[type='submit']").prop('disabled', true);
+        // Newsletter Form Handling
+        const newsletterForm = document.getElementById('newsletter-form');
+        if (newsletterForm) {
+            const formContainer = newsletterForm.closest('.max-w-2xl.mx-auto.text-center:not(.hidden)');
+            // The thankYouContainer is the one that is initially hidden and has the #return-newsletter button
+            const thankYouContainer = document.querySelector('#return-newsletter') ? document.querySelector('#return-newsletter').closest('.max-w-2xl.mx-auto.text-center.hidden') : null;
+
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            const submitButton = newsletterForm.querySelector('button[type="submit"]');
+            const returnButton = document.getElementById('return-newsletter');
+
+            function setNewsletterLoading(isLoading) {
+                if (!submitButton) return;
+                if (isLoading) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Subscribing...';
+                } else {
+                    submitButton.disabled = false; // Will be re-evaluated by input listener
+                    submitButton.textContent = 'Subscribe';
+                }
             }
-        });
 
-        const spinnerHTMLNewsLetter = `
-  <span class="flex items-center">
-    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-    </svg>
-    Submitting Application...
-  </span>
-`;
-
-
-
-
-
-        $('#newsletter-form').on('submit', function (e) {
-            e.preventDefault();
-
-            const email = $('#newsletter-form input').val().trim();
-
-            if (isValidEmail(email)) {
-                $("#newsletter-form button[type='submit']").html(spinnerHTMLNewsLetter).attr("disabled", "");
-
-
-                $("#newsletter-form").closest(".max-w-2xl").addClass("hidden").next().removeClass("hidden")
-            } else {
-                alert('Please enter a valid email address.');
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
             }
-        });
 
-
-        function isValidEmail(email) {
-            if (email === '') {
-                return false;  // Empty email is not valid
+            if (emailInput && submitButton) {
+                emailInput.addEventListener('input', function() {
+                    if (emailInput.value.trim() !== '' && isValidEmail(emailInput.value.trim())) {
+                        submitButton.disabled = false;
+                    } else {
+                        submitButton.disabled = true;
+                    }
+                });
+                // Initial state based on HTML (already disabled)
+                 if (emailInput.value.trim() === '' || !isValidEmail(emailInput.value.trim())) {
+                    submitButton.disabled = true;
+                }
             }
-            // Basic email validation using a regular expression (can be expanded)
-            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-            return emailPattern.test(email);
+
+            newsletterForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                if (!emailInput || !isValidEmail(emailInput.value.trim())) {
+                    // Optionally, display an inline error message for invalid email.
+                    // For now, the button should remain disabled if email is invalid.
+                    return;
+                }
+
+                setNewsletterLoading(true);
+                const email = emailInput.value.trim();
+                let recaptchaToken = null;
+
+                try {
+                    if (typeof window.generateRecaptchaToken === 'function') {
+                        recaptchaToken = await window.generateRecaptchaToken();
+                    } else {
+                        console.warn('generateRecaptchaToken function not found. Proceeding with null reCAPTCHA token for newsletter.');
+                        recaptchaToken = null; // Ensure it's defined as null if function not found
+                    }
+
+                    const payload = {
+                        email: email,
+                        newsletterSubscription: true, // Specific flag for this type of submission
+                        recaptchaToken: recaptchaToken // Always include the key, defaulting to null
+                    };
+
+                    const response = await fetch('https://faas-lon1-917a94a7.doserverless.co/api/v1/web/fn-65457b32-8750-4cb2-9f3c-f7e4bc49c98e/sample/hello', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.text();
+                        console.error('Newsletter API Error:', response.status, errorData);
+                        // UI still shows success as requested
+                    } else {
+                        const result = await response.json();
+                        console.log('Newsletter subscription successful:', result);
+                    }
+
+                } catch (error) {
+                    console.error('Error during newsletter form submission (client-side):', error);
+                    // UI still shows success as requested
+                } finally {
+                    setNewsletterLoading(false); // Reset button text before hiding
+
+                    if (formContainer && thankYouContainer) {
+                        formContainer.classList.add('hidden');
+                        thankYouContainer.classList.remove('hidden');
+                        if (window.AOS) {
+                            window.AOS.refreshHard(); // Refresh AOS for new elements
+                        }
+                    }
+                }
+            });
+
+            if (returnButton && formContainer && thankYouContainer && emailInput && submitButton) {
+                returnButton.addEventListener('click', function() {
+                    if(thankYouContainer) thankYouContainer.classList.add('hidden');
+                    if(formContainer) formContainer.classList.remove('hidden');
+                    
+                    emailInput.value = '';
+                    submitButton.textContent = 'Subscribe';
+                    submitButton.disabled = true; // Email is now empty
+                    if (window.AOS) {
+                        window.AOS.refreshHard();
+                    }
+                });
+            }
         }
-
-
-        $("#return-newsletter").on("click", function () {
-            $("#newsletter-form button[type='submit']").html("Subscribe")
-            $("#newsletter-form input").val("");
-            $("#newsletter-form").closest(".max-w-2xl").removeClass("hidden").next().addClass("hidden")
-        })
-
     }
 })

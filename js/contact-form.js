@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
 
                 // Send form data to your server
-                const response = await fetch('https://6wookyi3tjae3mf6otwdaanhgq0xmfte.lambda-url.eu-west-2.on.aws/', {
+                const response = await fetch('https://faas-lon1-917a94a7.doserverless.co/api/v1/web/fn-65457b32-8750-4cb2-9f3c-f7e4bc49c98e/sample/hello', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 
                   
-                    window.location.href = 'thanks-contact.html';
+                    window.location.href = 'contact-thank-you.html';
                
             } catch (error) {
                 console.error('Error during form submission (client-side):', error);
-                window.location.href = 'thanks-contact.html';
+                window.location.href = 'contact-thank-you.html';
             } finally {
                 setLoading(false);
             }
