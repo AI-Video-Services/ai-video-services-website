@@ -260,7 +260,7 @@ $(document).ready(function () {
                 .text("Processing payment...")
                 .attr("disabled", "");
 
-            const paymentEndpoint = `https://payments.aivideo-services.com/payment-link`;
+            const paymentEndpoint = `https://payments.generation-learn.com/payment-link`;
 
             try {
                 const response = await fetch(paymentEndpoint, {
