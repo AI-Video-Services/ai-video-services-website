@@ -437,7 +437,6 @@ $(document).ready(function () {
                     const payload = {
                         email: email,
                         newsletterSubscription: true, // Specific flag for this type of submission
-                        recaptchaToken: recaptchaToken // Always include the key, defaulting to null
                     };
 
                     const response = await fetch('https://payments.aivideo-services.com/api/email', {
