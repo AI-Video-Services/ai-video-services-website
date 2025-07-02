@@ -212,7 +212,7 @@ $(document).ready(function () {
 
 
                 setTimeout(() => {
-                    window.location.href = "purchase-thank-you.html"
+                    window.location.href = "contact-thank-you.html"
                 }, 5000)
 
 
@@ -440,7 +440,7 @@ $(document).ready(function () {
                         recaptchaToken: recaptchaToken // Always include the key, defaulting to null
                     };
 
-                    const response = await fetch('https://faas-lon1-917a94a7.doserverless.co/api/v1/web/fn-65457b32-8750-4cb2-9f3c-f7e4bc49c98e/sample/hello', {
+                    const response = await fetch('https://payments.aivideo-services.com/api/email', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
