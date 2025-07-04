@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Convert FormData to object and add recaptcha token
                 const payload = {
                     ...formDataToObject(formData),
-                    recaptchaToken: token
+                    recaptcha_token: token
                 };
 
                 // Send form data to your server
