@@ -90,19 +90,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     body: JSON.stringify(payload)
                 });
 
-                const data = await response.json();
-
-                if (data.captchaValid === true && data.action === 'contact_form') {
-                    console.log("Success:", data);
-                    setTimeout(() => {
-                        window.location.href = "thanks-contact.html";
-                    }, 3000);
-                } else {
-                    alert("Invalid Captcha!");
-                }
+                
+                  
+                    window.location.href = 'contact-thank-you.html';
+               
             } catch (error) {
-                console.error("Error:", error);
-                window.location.href = "thanks-contact.html";
+                console.error('Error during form submission (client-side):', error);
+                window.location.href = 'contact-thank-you.html';
             } finally {
                 setLoading(false);
             }
