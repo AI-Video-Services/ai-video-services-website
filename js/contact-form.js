@@ -88,9 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(payload)
-                });
-
-                
+                });               
                   
                     window.location.href = 'contact-thank-you.html';
                
